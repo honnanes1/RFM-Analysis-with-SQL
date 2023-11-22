@@ -1,17 +1,17 @@
 ﻿---Inspecting Data
 select * from PortfolioProject1.dbo.sales_data_sample
---CHecking unique values
-select distinct status from PortfolioProject1.dbo.sales_data_sample --Nice one to plot
+--Checking unique values
+select distinct status from PortfolioProject1.dbo.sales_data_sample 
 select distinct year_id from PortfolioProject1.dbo.sales_data_sample
-select distinct PRODUCTLINE from PortfolioProject1.dbo.sales_data_sample ---Nice to plot
-select distinct COUNTRY from PortfolioProject1.dbo.sales_data_sample---Nice to plot
-select distinct DEALSIZE from PortfolioProject1.dbo.sales_data_sample ---Nice to plot
-select distinct TERRITORY from PortfolioProject1.dbo.sales_data_sample ---Nice to plot
+select distinct PRODUCTLINE from PortfolioProject1.dbo.sales_data_sample 
+select distinct COUNTRY from PortfolioProject1.dbo.sales_data_sample
+select distinct DEALSIZE from PortfolioProject1.dbo.sales_data_sample 
+select distinct TERRITORY from PortfolioProject1.dbo.sales_data_sample 
 
 SELECT DISTINCT MONTH_ID FROM PortfolioProject1.dbo.sales_data_sample
 WHERE year_id = 2003
 
----ANALYSIS
+---Analysis
 ----Let's start by grouping sales by productline
 SELECT PRODUCTLINE, SUM(sales) Revenue
 FROM PortfolioProject1.dbo.sales_data_sample
@@ -38,7 +38,7 @@ GROUP BY  MONTH_ID
 ORDER BY 2 DESC
 
 
---November seems to be the month, what product do they sell in November, Classic I believe
+--November seems to be the month, what product do they sell in November
 SELECT  MONTH_ID, PRODUCTLINE, SUM(sales) Revenue, COUNT(ORDERNUMBER)
 FROM PortfolioProject1.dbo.sales_data_sample
 WHERE YEAR_ID = 2004 AND MONTH_ID = 11 --change year to see the rest
